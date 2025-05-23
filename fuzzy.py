@@ -87,6 +87,7 @@ class FuzzyApp(QWidget):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Bulanık Kontrolcü - Kas Kazanımı ve Yağ Yakımı")
+        self.resize(1000, 800)
         self.setStyleSheet("""
             QWidget {
                 font-family: Arial;
@@ -160,7 +161,7 @@ class FuzzyApp(QWidget):
         self.main_tab_layout.addWidget(self.muscle_label)
         self.main_tab_layout.addWidget(self.fat_label)
 
-        self.figure = Figure(figsize=(5, 3))
+        self.figure = Figure(figsize=(10, 6))
         self.canvas = FigureCanvas(self.figure)
         self.main_tab_layout.addWidget(self.canvas)
 
@@ -218,15 +219,31 @@ class FuzzyApp(QWidget):
             self.fat_label.setText("")
 
     def plot_results(self, mg, fl):
-        self.figure.clear()
-        ax = self.figure.add_subplot(111)
-        categories = ['Kas Kazanımı', 'Yağ Yakımı']
-        values = [mg, fl]
-        bars = ax.bar(categories, values, color=['#4caf50', '#f44336'])
-        ax.set_ylim(0, 10)
-        for bar in bars:
-            yval = bar.get_height()
-            ax.text(bar.get_x() + bar.get_width()/2, yval + 0.1, f"{yval:.2f}", ha='center')
+        self.figure.clf()  
+        
+        ax1 = self.figure.add_subplot(2, 1, 1)
+        ax2 = self.figure.add_subplot(2, 1, 2)
+    
+        # Kas Kazanımı grafiği
+        for label in muscle_gain.terms:
+            ax1.plot(muscle_gain.universe, muscle_gain[label].mf, label=label)
+        ax1.axvline(mg, color='red', linestyle='--', label=f"Sonuç: {mg:.2f}")
+        ax1.set_title("Kas Kazanımı")
+        ax1.set_ylim(-0.05, 1.05)
+        ax1.legend(loc='upper right')
+        ax1.grid(True)
+    
+        # Yağ Yakımı grafiği
+        for label in fat_loss.terms:
+            ax2.plot(fat_loss.universe, fat_loss[label].mf, label=label)
+        ax2.axvline(fl, color='red', linestyle='--', label=f"Sonuç: {fl:.2f}")
+        ax2.set_title("Yağ Yakımı")
+        ax2.set_ylim(-0.05, 1.05)
+        ax2.legend(loc='upper right')
+        ax2.grid(True)
+    
+        self.figure.tight_layout(pad=2.5) 
+    
         self.canvas.draw()
 
     def update_input_graphs(self, inputs):
