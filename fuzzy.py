@@ -210,7 +210,7 @@ class FuzzyApp(QWidget):
             ax = fig.add_subplot(111)
             for label in var.terms:
                 ax.plot(var.universe, var[label].mf, label=label)
-            ax.set_title(f"{var.label.capitalize()} Üyelik Fonksiyonları")
+            ax.set_title(f"{var.label.capitalize()}")
             ax.legend()
             vbox.addWidget(canvas)
             self.tabs.addTab(tab, var.label.capitalize())
@@ -292,7 +292,7 @@ class FuzzyApp(QWidget):
                 for label in var.terms:
                     ax.plot(var.universe, var[label].mf, label=label)
                 ax.axvline(value, color='red', linestyle='--', label=f"Giriş: {value}")
-                ax.set_title(f"{key.capitalize()} Üyelik Fonksiyonları")
+                ax.set_title(f"{key.capitalize()}")
                 ax.legend()
                 canvas.draw()
 
