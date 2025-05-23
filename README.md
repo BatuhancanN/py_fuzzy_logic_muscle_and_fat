@@ -56,7 +56,7 @@ Bu kontrolcünün amacı; Protein, karbonhidrat, yağ ve şeker tüketiminizi el
 #### GIT ile çalıştırma rehberi
 
 ```bash
-git clone https://github.com/BatuhancanN/py_fuzzy_logic_muscle_and_fat
+git clone https://github.com/BatuhancanN/py_fuzzy_logic_muscle_and_fat](https://github.com/BatuhancanN/py_fuzzy_logic_muscle_and_fat_analyzer
 ```
 
 ```bash
