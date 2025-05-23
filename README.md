@@ -74,7 +74,7 @@ python fuzzy.py
 
 
 
-
+###### Bu proje Batuhan CAN tarafından Bulanık Mantık dersi final projesi olarak geliştirilmiştir.
 
 
 
