@@ -54,30 +54,67 @@ fat_loss['very_high'] = fuzz.trimf(fat_loss.universe, [8, 10, 10])
 
 rules = [
     ctrl.Rule(protein['high'] & carb['high'] & fat['low'] & sugar['low'] & stress['low'], muscle_gain['very_high']),
-    ctrl.Rule(protein['high'] & carb['medium'] & fat['low'] & sugar['low'] & stress['low'], muscle_gain['high']),
-    ctrl.Rule(protein['high'] & carb['medium'] & fat['medium'] & sugar['medium'] & stress['medium'], muscle_gain['medium']),
+    ctrl.Rule(protein['high'] & carb['medium'] & fat['low'] & sugar['low'] & stress['low'], muscle_gain['very_high']),
+    ctrl.Rule(protein['high'] & carb['low'] & fat['low'] & sugar['low'] & stress['low'], muscle_gain['very_high']),
+    ctrl.Rule(protein['high'] & carb['medium'] & fat['low'] & sugar['low'] & stress['high'], muscle_gain['very_high']),
+    ctrl.Rule(protein['high'] & carb['low'] & fat['low'] & sugar['low'] & stress['high'], muscle_gain['very_high']),
+
+    ctrl.Rule(protein['high'] & carb['medium'] & fat['medium'] & sugar['low'] & stress['high'], muscle_gain['high']),
+    ctrl.Rule(protein['high'] & carb['medium'] & fat['medium'] & sugar['low'] & stress['medium'], muscle_gain['high']),
+    ctrl.Rule(protein['medium'] & carb['low'] & fat['low'] & sugar['low'] & stress['high'], muscle_gain['high']),
+    ctrl.Rule(protein['medium'] & carb['medium'] & fat['low'] & sugar['low'] & stress['high'], muscle_gain['high']),
+    ctrl.Rule(protein['medium'] & carb['low'] & fat['low'] & sugar['low'] & stress['medium'], muscle_gain['high']),
+    ctrl.Rule(protein['high'] & carb['low'] & fat['low'] & sugar['medium'] & stress['medium'], muscle_gain['high']),
+
+
     ctrl.Rule(protein['medium'] & carb['medium'] & fat['low'] & sugar['low'] & stress['medium'], muscle_gain['medium']),
-    ctrl.Rule(protein['medium'] & carb['low'] & (fat['medium'] | sugar['medium']) & stress['high'], muscle_gain['low']),
-    ctrl.Rule(protein['low'] & stress['medium'], muscle_gain['low']),
-    ctrl.Rule(protein['low'] & stress['high'], muscle_gain['very_low']),
-    ctrl.Rule(protein['low'] & fat['high'] & sugar['high'] & stress['high'], muscle_gain['very_low']),
-    ctrl.Rule(protein['medium'] & fat['high'] & sugar['high'], muscle_gain['very_low']),
-    ctrl.Rule(protein['medium'] & stress['high'] & (fat['medium'] | sugar['medium']), muscle_gain['low']),
-    ctrl.Rule(protein['high'] & carb['low'], muscle_gain['medium']),
-    ctrl.Rule(protein['medium'] & carb['low'], muscle_gain['low']),
-    ctrl.Rule(protein['low'] & carb['high'], muscle_gain['low']),
-    ctrl.Rule(fat['low'] & sugar['low'] & stress['high'] & carb['low'], fat_loss['very_high']),
-    ctrl.Rule(fat['low'] & sugar['low'] & stress['medium'] & carb['medium'], fat_loss['high']),
-    ctrl.Rule(fat['low'] & sugar['medium'] & stress['high'], fat_loss['high']),
-    ctrl.Rule(fat['medium'] & sugar['low'] & stress['high'], fat_loss['medium']),
-    ctrl.Rule(fat['medium'] & sugar['medium'] & stress['medium'], fat_loss['medium']),
-    ctrl.Rule(fat['high'] & sugar['high'], fat_loss['very_low']),
-    ctrl.Rule(fat['high'] & stress['low'], fat_loss['low']),
-    ctrl.Rule(fat['medium'] & sugar['high'] & stress['low'], fat_loss['low']),
-    ctrl.Rule(carb['high'] & fat['low'] & sugar['low'] & stress['high'], fat_loss['medium']),
-    ctrl.Rule(carb['low'] & fat['low'] & sugar['low'] & stress['high'], fat_loss['very_high']),
-    ctrl.Rule(carb['low'] & fat['medium'] & stress['medium'], fat_loss['high']),
-    ctrl.Rule(carb['low'] & fat['high'], fat_loss['low']),
+    ctrl.Rule(protein['medium'] & carb['medium'] & fat['medium'] & sugar['low'] & stress['medium'], muscle_gain['medium']),
+    ctrl.Rule(protein['medium'] & carb['medium'] & fat['medium'] & sugar['medium'] & stress['medium'], muscle_gain['medium']),
+    ctrl.Rule(protein['high'] & carb['low'] & fat['medium'] & sugar['low'] & stress['medium'], muscle_gain['medium']),
+    ctrl.Rule(protein['medium'] & carb['low'] & fat['medium'] & sugar['low'] & stress['medium'], muscle_gain['medium']),
+
+    ctrl.Rule(protein['low'] & carb['medium'] & fat['medium'] & sugar['medium'] & stress['medium'], muscle_gain['low']),
+    ctrl.Rule(protein['low'] & carb['high'] & fat['medium'] & sugar['medium'] & stress['medium'], muscle_gain['low']),
+    ctrl.Rule(protein['medium'] & carb['low'] & fat['medium'] & sugar['medium'] & stress['high'], muscle_gain['low']),
+    ctrl.Rule(protein['low'] & carb['medium'] & fat['low'] & sugar['medium'] & stress['medium'], muscle_gain['low']),
+    ctrl.Rule(protein['low'] & carb['low'] & fat['medium'] & sugar['medium'] & stress['medium'], muscle_gain['low']),
+
+    ctrl.Rule(protein['low'] & carb['low'] & fat['high'] & sugar['high'] & stress['high'], muscle_gain['very_low']),
+    ctrl.Rule(protein['low'] & carb['medium'] & fat['high'] & sugar['high'] & stress['high'], muscle_gain['very_low']),
+    ctrl.Rule(protein['medium'] & carb['medium'] & fat['high'] & sugar['high'] & stress['high'], muscle_gain['very_low']),
+    ctrl.Rule(protein['medium'] & carb['low'] & fat['high'] & sugar['high'] & stress['high'], muscle_gain['very_low']),
+    ctrl.Rule(protein['low'] & carb['low'] & fat['medium'] & sugar['high'] & stress['high'], muscle_gain['very_low']),
+
+
+
+    ctrl.Rule(protein['medium'] & carb['low'] & fat['low'] & sugar['low'] & stress['high'], fat_loss['very_high']),
+    ctrl.Rule(protein['low'] & carb['low'] & fat['low'] & sugar['low'] & stress['high'], fat_loss['very_high']),
+    ctrl.Rule(protein['high'] & carb['low'] & fat['low'] & sugar['low'] & stress['high'], fat_loss['very_high']),
+    ctrl.Rule(protein['medium'] & carb['low'] & fat['low'] & sugar['medium'] & stress['high'], fat_loss['very_high']),
+    ctrl.Rule(protein['medium'] & carb['low'] & fat['medium'] & sugar['low'] & stress['high'], fat_loss['very_high']),
+
+    ctrl.Rule(protein['low'] & carb['low'] & fat['medium'] & sugar['low'] & stress['high'], fat_loss['high']),
+    ctrl.Rule(protein['low'] & carb['medium'] & fat['low'] & sugar['low'] & stress['high'], fat_loss['high']),
+    ctrl.Rule(protein['medium'] & carb['medium'] & fat['low'] & sugar['low'] & stress['high'], fat_loss['high']),
+    ctrl.Rule(protein['medium'] & carb['low'] & fat['medium'] & sugar['medium'] & stress['medium'], fat_loss['high']),
+    ctrl.Rule(protein['medium'] & carb['low'] & fat['low'] & sugar['medium'] & stress['medium'], fat_loss['high']),
+
+    ctrl.Rule(protein['medium'] & carb['medium'] & fat['medium'] & sugar['medium'] & stress['medium'], fat_loss['medium']),
+    ctrl.Rule(protein['high'] & carb['medium'] & fat['medium'] & sugar['medium'] & stress['medium'], fat_loss['medium']),
+    ctrl.Rule(protein['low'] & carb['medium'] & fat['medium'] & sugar['medium'] & stress['medium'], fat_loss['medium']),
+    ctrl.Rule(protein['medium'] & carb['medium'] & fat['high'] & sugar['medium'] & stress['medium'], fat_loss['medium']),
+
+    ctrl.Rule(protein['low'] & carb['medium'] & fat['high'] & sugar['high'] & stress['medium'], fat_loss['low']),
+    ctrl.Rule(protein['medium'] & carb['high'] & fat['medium'] & sugar['high'] & stress['low'], fat_loss['low']),
+    ctrl.Rule(protein['high'] & carb['high'] & fat['medium'] & sugar['medium'] & stress['low'], fat_loss['low']),
+    ctrl.Rule(protein['medium'] & carb['high'] & fat['low'] & sugar['high'] & stress['low'], fat_loss['low']),
+
+    ctrl.Rule(protein['high'] & carb['high'] & fat['high'] & sugar['high'] & stress['low'], fat_loss['very_low']),
+    ctrl.Rule(protein['medium'] & carb['high'] & fat['high'] & sugar['high'] & stress['low'], fat_loss['very_low']),
+    ctrl.Rule(protein['low'] & carb['high'] & fat['high'] & sugar['high'] & stress['low'], fat_loss['very_low']),
+    ctrl.Rule(protein['low'] & carb['medium'] & fat['high'] & sugar['high'] & stress['low'], fat_loss['very_low']),
+
+        
 ]
 
 system = ctrl.ControlSystem(rules)
@@ -92,7 +129,7 @@ class FuzzyApp(QWidget):
             QWidget {
                 font-family: Arial;
                 font-size: 14px;
-                background-color: #f0f4f7;
+                background-color: #3498db;
             }
             QLineEdit {
                 padding: 5px;
@@ -101,7 +138,7 @@ class FuzzyApp(QWidget):
             }
             QPushButton {
                 padding: 6px;
-                background-color: #2d89ef;
+                background-color: #c0392b;
                 color: white;
                 border: none;
                 border-radius: 5px;
@@ -161,7 +198,7 @@ class FuzzyApp(QWidget):
         self.main_tab_layout.addWidget(self.muscle_label)
         self.main_tab_layout.addWidget(self.fat_label)
 
-        self.figure = Figure(figsize=(10, 6))
+        self.figure = Figure(figsize=(10, 6)) 
         self.canvas = FigureCanvas(self.figure)
         self.main_tab_layout.addWidget(self.canvas)
 
@@ -242,7 +279,7 @@ class FuzzyApp(QWidget):
         ax2.legend(loc='upper right')
         ax2.grid(True)
     
-        self.figure.tight_layout(pad=2.5) 
+        self.figure.tight_layout(pad=2.5)  
     
         self.canvas.draw()
 
