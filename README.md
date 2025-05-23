@@ -60,7 +60,7 @@ git clone https://github.com/BatuhancanN/py_fuzzy_logic_muscle_and_fat](https://
 ```
 
 ```bash
-dir py_fuzzy_logic_muscle_and_fat
+cd py_fuzzy_logic_muscle_and_fat
 ```
 
 ```bash
