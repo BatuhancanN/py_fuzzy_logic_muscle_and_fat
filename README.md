@@ -2,7 +2,7 @@
 
 ### Giriş
 Bu kontrolcünün amacı; Protein, karbonhidrat, yağ ve şeker tüketiminizi ele alarak yağ yıkımı ve kas gelişimi miktarını 10 üzerinden puanlayarak tahmin etmektir.
-#### İlgili durumlar için 25 adet kural belirlenmiştir. Gerçekleşmesi imkansız bazı durumlar için bazı kurallar atlandı. Rastgele girişler yapıldığında ilgili uyarıyı almanız normaldir. Gerçekçi bir senaryoda gerçeğe oldukça yakın tahminler yapılabilmektedir.
+#### İlgili durumlar için 48 adet kural belirlenmiştir. Gerçekleşmesi imkansız bazı durumlar için bazı kurallar atlandı. Rastgele girişler yapıldığında ilgili uyarıyı almanız normaldir. Gerçekçi bir senaryoda gerçeğe oldukça yakın tahminler yapılabilmektedir.
 
 ### Üyelik Fonksiyonları
 #### Protein:
